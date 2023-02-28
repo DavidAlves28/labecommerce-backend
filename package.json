@@ -1,0 +1,22 @@
+{
+  "name": "labecommerce-backend",
+  "version": "1.0.0",
+  "description": "'resolucao de exercios'",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "pedra": "node pedra-papel-tesoura.js pedra",
+    "papel": "node pedra-papel-tesoura.js papel",
+    "tesoura": "node pedra-papel-tesoura.js tesoura"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidAlves28/labecommerce-backend.git"
+  },
+  "author": "david-barbosa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidAlves28/labecommerce-backend/issues"
+  },
+  "homepage": "https://github.com/DavidAlves28/labecommerce-backend#readme"
+}
