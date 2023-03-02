@@ -4,10 +4,8 @@
   "description": "'resolucao de exercios'",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "pedra": "node pedra-papel-tesoura.js pedra",
-    "papel": "node pedra-papel-tesoura.js papel",
-    "tesoura": "node pedra-papel-tesoura.js tesoura"
+    "start": "tsc && node ./build/index.js"
+  
   },
   "repository": {
     "type": "git",
@@ -18,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/DavidAlves28/labecommerce-backend/issues"
   },
-  "homepage": "https://github.com/DavidAlves28/labecommerce-backend#readme"
+  "homepage": "https://github.com/DavidAlves28/labecommerce-backend#readme",
+  "devDependencies": {
+    "@types/node": "^18.14.4",
+    "typescript": "^4.9.5"
+  }
 }
