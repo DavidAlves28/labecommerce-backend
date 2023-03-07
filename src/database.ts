@@ -1,4 +1,7 @@
-import { TProduct, TPurchase, TUser } from "./types/types";
+
+import { Categories, TProduct, TPurchase, TUser } from "./types/types";
+
+
 
 
 export const Users: TUser[] = [
@@ -15,59 +18,105 @@ export const Users: TUser[] = [
 ]
 export const Products: TProduct[] = [
     {
-        idProduct: '001',
+        id: '001',
         name: 'Controle video-game',
         price: 300.00,
-        category: 'eletronico'
+        category: Categories.ELECTRONICS
     },
     {
-        idProduct: '002',
+        id: '002',
         name: 'Caderno azul 500 folhas',
         price: 90.00,
-        category: 'escolar'
+        category: Categories.ACCESSORIES
     }
 ]
 
 
 export const Purchases: TPurchase[] = [
     {
-        useId:'001',
-        productId:'001',
-        quantity:3,
-        totalPrice: 3 * 300, 
+        useId: '001',
+        productId: '001',
+        quantity: 3,
+        totalPrice: 3 * 300
     },
     {
-        useId:'002',
+        useId: '002',
         productId: '002',
         quantity: 4,
         totalPrice: 4 * 90
     }
 ]
 
+// funcao para adicionar usuario a lista
+export function createUser(id: string, email: string, password: string): void {
+    const newUser: TUser = {
+        id: id,
+        email: email,
+        password: password
+    }
+    newUser ? (Users.push(newUser) && console.log("Cadastro realizado com sucesso!")) : console.log("Erro no cadastro!");
 
-//teste
-// const usersId = Users.map((use) : string =>{
-    //     return use.id})
-    // const productsId = Products.map((use)=>{
-        //    return use.idProduct    
-        // })
+}
 
-// export  function attPurchase ( price:number ,quantity:number ) {
-    
-//     const  Purchases: TPurchase[] = [
-//         {
-//             useId:usersId,
-//             productId:productsId,            
-//             quantity:quantity,
-//             totalPrice: quantity * price, 
-//         }]
+// funcao para ver todos os usuarios
+export function getAllUsers(): void {
+    console.table(Users)
+}
 
-//      return Purchases 
-//     }
+// funcao para criar produto 
+export function createProduct(id: string, name: string, price: number, category: Categories): void {
+    const newProduct: TProduct = {
+        id: id,
+        name: name,
+        price: price,
+        category: category
+    }
+    newProduct ? (Products.push(newProduct) && console.log('Produto realizado com sucesso!')) : console.log('Erro no cadastro do produto!')
 
+}
 
+// Funcao para ver todos os produtos! 
+export function getAllProducts(): void {
+    console.table(Products)
 
+}
 
+// FUNCAO para buscar produto pelo id 
+export function getProductById(idProduct: string): void {
+    Products.find((produto) => {
+        return produto.id === idProduct ? console.table(produto) : console.log('Produto não encontrado!');
 
-  
-    
+    })
+}
+
+// exercicio 3 
+// funcao para buscar por nome
+export function queryProductsByName(q: string): void {
+    Products.filter((produto) => {
+        return produto.name.toLowerCase().includes(q) ? console.table(produto) : console.log("produto não encontrado!")
+
+    })
+}
+// funcao para criar um compra
+export function createPurchase(userId: string, productId: string, quantity: number, totalPrice: number): void {
+    const newPurchase: TPurchase = {
+        useId: userId,
+        productId: productId,
+        quantity: quantity,
+        totalPrice: quantity * totalPrice
+    }
+    newPurchase ? (Purchases.push(newPurchase) && console.log("Compra realizada com sucesso!")) : console.log("Erro na compra!");
+
+}
+// funcao para ver todas as compras 
+export function getAllUPurchase(): void {
+    console.table(Purchases)
+}
+
+// funcao para buscar todos as compras
+export function getAllPurchasesFromUserId(userIdToSearch: string): void {
+
+     Purchases.find((compra) => {
+        compra.useId === userIdToSearch ? console.table(compra) : console.log('id não encontrado!')
+    })
+}
