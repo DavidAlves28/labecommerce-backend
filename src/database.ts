@@ -34,13 +34,13 @@ export const Products: TProduct[] = [
 
 export const Purchases: TPurchase[] = [
     {
-        useId: '001',
+        userId: '001',
         productId: '001',
         quantity: 3,
         totalPrice: 3 * 300
     },
     {
-        useId: '002',
+        userId: '002',
         productId: '002',
         quantity: 4,
         totalPrice: 4 * 90
@@ -100,7 +100,7 @@ export function queryProductsByName(q: string): void {
 // funcao para criar um compra
 export function createPurchase(userId: string, productId: string, quantity: number, totalPrice: number): void {
     const newPurchase: TPurchase = {
-        useId: userId,
+        userId: userId,
         productId: productId,
         quantity: quantity,
         totalPrice: quantity * totalPrice
@@ -117,6 +117,6 @@ export function getAllUPurchase(): void {
 export function getAllPurchasesFromUserId(userIdToSearch: string): void {
 
      Purchases.find((compra) => {
-        compra.useId === userIdToSearch ? console.table(compra) : console.log('id não encontrado!')
+        compra.userId === userIdToSearch ? console.table(compra) : console.log('id não encontrado!')
     })
 }
