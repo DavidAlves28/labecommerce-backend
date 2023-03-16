@@ -6,25 +6,25 @@ import { Categories, TProduct, TPurchase, TUser } from "./types/types";
 
 export const Users: TUser[] = [
     {
-        id: '001',
+        id: 'u001',
         email: 'David@email.com',
         password: '123456'
     },
     {
-        id: '002',
+        id: 'u002',
         email: 'David2@email.com',
         password: '12345678'
     }
 ]
 export const Products: TProduct[] = [
     {
-        id: '001',
+        id: 'p001',
         name: 'Controle video-game',
         price: 300.00,
         category: Categories.ELECTRONICS
     },
     {
-        id: '002',
+        id: 'p002',
         name: 'Caderno azul 500 folhas',
         price: 90.00,
         category: Categories.ACCESSORIES
@@ -34,14 +34,14 @@ export const Products: TProduct[] = [
 
 export const Purchases: TPurchase[] = [
     {
-        userId: '001',
-        productId: '001',
+        userId: 'pu001',
+        productId: 'p001',
         quantity: 3,
         totalPrice: 3 * 300
     },
     {
-        userId: '002',
-        productId: '002',
+        userId: 'pu002',
+        productId: 'p002',
         quantity: 4,
         totalPrice: 4 * 90
     }
