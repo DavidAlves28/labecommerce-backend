@@ -13,7 +13,12 @@ export const Users: TUser[] = [
     {
         id: 'u002',
         email: 'David2@email.com',
-        password: '12345678'
+        password: '123456'
+    },
+    {
+        id: 'u003',
+        email: 'David22@email.com',
+        password: '123456'
     }
 ]
 export const Products: TProduct[] = [
@@ -28,22 +33,34 @@ export const Products: TProduct[] = [
         name: 'Caderno azul 500 folhas',
         price: 90.00,
         category: Categories.ACCESSORIES
+    },
+    {
+        id: 'p003',
+        name: 'Monitor Gamer 24Pol 144hz ',
+        price: 900.00,
+        category: Categories.ELECTRONICS
     }
 ]
 
 
 export const Purchases: TPurchase[] = [
     {
-        userId: 'pu001',
+        userId: 'u001',
         productId: 'p001',
         quantity: 3,
         totalPrice: 3 * 300
     },
     {
-        userId: 'pu002',
+        userId: 'u002',
         productId: 'p002',
         quantity: 4,
         totalPrice: 4 * 90
+    },
+    {
+        userId: 'u003',
+        productId: 'p003',
+        quantity: 1,
+        totalPrice: 900
     }
 ]
 
