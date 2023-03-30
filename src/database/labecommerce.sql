@@ -19,7 +19,7 @@ CREATE TABLE products (
     price REAL NOT NULL, 
     category TEXT NOT NULL
 );
-
+-- Popular tabela
 INSERT INTO products (id,name,price,category)
 VALUES 
 ('p001','Controle PS5', 420, 'Eletrônicos'),
@@ -27,8 +27,6 @@ VALUES
 ('p003','Cadeira ergonômica', 1420.99, 'Acessórios'),
 ('p004','Caderno Azul 500 folhas', 120, 'Acessórios'),
 ('p005','Camisa COD Warzone 2.0', 190.99, 'Roupas e Calçados');
-
-
 
  -- retornar todos os  usuários ADD
  SELECT * FROM users 
@@ -43,7 +41,6 @@ LIMIT 20 OFFSET 0;
 SELECT * FROM products
 WHERE price >=100 AND price <=300
 ORDER BY price ASC;
-
 
 -- buscar produto pelo nome
 SELECT * FROM products 
