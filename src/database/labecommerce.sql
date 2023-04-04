@@ -1,3 +1,4 @@
+-- Active: 1680568695456@@127.0.0.1@3306
  -- criacao Tabela  
 
 CREATE TABLE users ( 
@@ -5,7 +6,7 @@ CREATE TABLE users (
     email TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL
 );
-
+SELECT * FROM users;
 -- Popular tabela 
 INSERT INTO users (id,email,password)
 VALUES
@@ -77,3 +78,33 @@ WHERE id= 'u001';
 UPDATE products 
 SET price = 1199.50
 WHERE id='p003';
+
+
+-- Tabela Purchase
+CREATE TABLE purchases (
+    id TEXT PRIMARY KEY UNIQUE NOT NULL,
+    total_price REAL NOT NULL,
+    paid INTEGER NOT NULL,
+    delivered_at TEXT ,
+    buyer_id TEXT NOT NULL,
+    FOREIGN KEY (buyer_id) REFERENCES users(id)
+);
+DROP TABLE purchases;
+INSERT INTO purchases (id,total_price,paid,delivered_at,buyer_id)
+VALUES
+('pu001',350,0,NULL,'u001'),
+('pu002',100,0,NULL,'u001'),
+('pu003',120,0,NULL,'u002'),
+('pu004',280,0,NULL,'u002'),
+('pu005',400,0,NULL,'u001');
+
+SELECT *FROM purchases;
+UPDATE purchases
+SET 
+delivered_at =  DATETIME('now','localtime');
+
+-- SELECT users.email , purchases.buyer_id , purchases.total_price FROM users
+SELECT * FROM users
+INNER JOIN purchases
+ON users.id = purchases.buyer_id
+WHERE users.id = 'u002';
