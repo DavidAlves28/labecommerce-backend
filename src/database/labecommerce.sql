@@ -40,11 +40,11 @@ CREATE TABLE purchases (
 
 INSERT INTO purchases (id,paid,buyer_id)
 VALUES
-('pu001',1,'u001'),
-('pu002',1,'u001'),
-('pu003',1,'u002'),
-('pu004',1,'u002'),
-('pu005',1,'u001');
+('c001',1,'u001'),
+('c002',1,'u001'),
+('c003',1,'u002'),
+('c004',1,'u002'),
+('c005',1,'u001');
 
 SELECT * FROM purchases;
 
@@ -72,3 +72,7 @@ INNER JOIN purchases ON  purchases_products.purchase_id = purchases.id
 INNER JOIN users ON  purchases.buyer_id = users.id; 
 
 
+DROP TABLE users;
+DROP TABLE purchases;
+DROP TABLE products;
+DROP TABLE purchases_products;
