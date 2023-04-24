@@ -1,89 +1,91 @@
 # labecommerce-backend
 
-Documentação : https://documenter.getpostman.com/view/24823167/2s93RNzabf#e3046674-7fc7-477d-bfd3-257d5c9ff7d8
+Documentação :https://documenter.getpostman.com/view/24823167/2s93RNzabf#f60961ac-491e-49a3-bdf9-5835d05359a7
 
+
+## Projeto  
+`Primeiro projeto de back-end , consiste em praticar conteúdos desenvolvidos nas aulas, á aplicação é baseada na criação de API vinculada a um banco de dados real.`
 <a id="ancora"></a>
 
 # <b> Menu </b>
-- [Instalação](#)
-- [Métodos](#)
+
+- [Instalação](#install)
+- [banco de dados](#banco)
+- [Tecnologias utilizadas](#tecnologias)
 - [Get](#get)
 - [Post](#post)
 - [Put](#put)
 - [Delete](#delete)
 
+<a id="banco"></a>
+
+## Banco de Dados
+
+![banco](https://user-images.githubusercontent.com/29845719/214396608-ddcfd097-e615-44f9-acbe-f815f9abb83f.png)
+https://dbdiagram.io/d/63c6e8e5296d97641d7a4666
+
+#
+
+<a id="tecnologias"></a>
+
+## Tecnologias utilizadas
+
+- NodeJS
+- Typescript
+- Express
+- SQL e SQLite
+- Knex
+- Postman
+
+#
+
+<a id="install"></a>
+
+## Instalação
+
+```
+npm i
+npm run dev
+```
+
 <a id="get"></a>
 
-## Métodos
+## EndPoints
 
-## `Get`
+## GET
 
 - `getAllUsers` - retorna todos os usuários cadrastados;
 - `getAllProducts` - retorna todos os produtos cadastrados;
 - `getAllPurchases` - retorna todas as compras realizadas;
 - `getProductByName` - retorna o produto que foi pesquisado pelo nome;
-   
+- `getPuchaseByUserId` - retorna as comperas relacionadas com id informado;
 - `getProductsById` - retorna o produto pelo se id pesquisado;
-- `GetUserPurchasesByUserId ` - retorna todas as compras feitas apenas pelo id do usuário.
-<a id="post"></a>
 
-## Metodo Post
+<a id="POST"></a>
 
-## `Post`
+#
 
-### `createUser` - Cria usuário com :
- o id do user deve iniciar com a letra 'u'
-```
-    id:'u001', // string
-    email: 'Fulano@email.com', // string
-    password: '123456' // string
-```
+## POST
 
-### `createProduct` - Cria produto com :
-- o `id` do produto deve iniciar com a letra 'p'
-- `category` deve ser  `Eletrônicos`, ` Roupas e calçados` ,`Acessórios`; 
-```
-    id: 'p001', // string
-    name: 'Controle video-game', // string
-    price: 300.00, // number
-    category: "Eletrônicos" // string
-```
-### `createPurchase ` cria uma compra como :  
- - o userId deve iniciar com a letra 'u' e deve estar na lista de `Users`,
- - o productId deve iniciar com a letra 'p' e deve estar na lista de `Products`
-``` 
-    userId: 'u001', // string
-    productId: 'p001', // string
-    quantity: 1, // number
-    totalPrice: 300 // number
-``` 
+- `createUser` - cria um usuário;
+- `createProduct` - cria um produto;
+- `createPurchase` - cria um compra;
 
-<a id="Put"></a>
+<a id="PUT"></a>
 
-## Metodo Put
+#
 
+## PUT
 
-## `putUserById`  alteras informações do usuário como: 
-- `id` , `email` e `password`. todas do tipo string;
-- `email` não deve igual a um já cadastrado;
-- `id` deve sempre inicar com a letra 'u'.
+- `putUserByID` - edita o usuário passado pelo id;
+- `putProductByID` - edita o produto passado pelo id;
 
+<a id="DELETE"></a>
 
-## `putProductById`  alteras informações do produto como: 
-`id` , `name`, `price` e `category`.
-- `id` e `name` do tipo string
-- `id` deve sempre inicar com a letra 'p';
-- `category` deve ser  `Eletrônicos`, ` Roupas e calçados` ,`Acessórios`; 
-- `price` deve ser tipo number;
+## DELETE
 
-<a id="Delete"></a>
+#
 
-## Metodo Delete 
-
-
-## `deleteUserById` Delete usuário pelo seu id informado ;
- - `id` deve iniciar com a letra 'u' e deve estar na lista de `Users` .
-
- ## `deleteProductById` Delete produto pelo seu id informado ;
- - `id` deve iniciar com a letra 'p' e deve estar na lista de `Products` .
-
+- `deleteUserByID` - deleta usuário pelo seu id \* o usuário não poder contém nenhuma compra relacionada ao seu id;
+- `deleteProductByID` - deleta produto pelo seu id ;
+- `deletePurchaseByID` - deleta Compra pelo seu id.
