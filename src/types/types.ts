@@ -1,24 +1,30 @@
-export enum Categories {
-    ACCESSORIES = "Acessórios",
-    CLOTHES_AND_SHOES = "Roupas e calçados",
-    ELECTRONICS = "Eletrônicos"
-}
 
-export type TUser ={ 
+
+export type TUserDB ={ 
     id:string,
+    name:string,
     email:string,
-    password:string
+    password:string,
+    createdAt?: string
 }
 
-export type TProduct = {
+export type TProductDB = {
      id:string,
      name:string,
      price:number,
-     category:Categories
+     description:string,
+     image_url?: string
 }
-export type TPurchase = { 
-    userId:string,
-    productId:string,
-    quantity:number,
-    totalPrice:number
+export type TPurchaseDB = { 
+    id:string,
+    buyer_id:string,
+    total_price:number,
+    createdAt?:string,
+    paid:number
 }
+export type TPurchaseProductsDB = {
+    purchase_id: string,
+    product_id:string,
+    quantity:number
+}
+
